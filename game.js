@@ -30,6 +30,19 @@ class Game {
     this.ctx.clearRect(0, 0, this.width, this.height);
   }
 
+  checkGameOver() {
+    const crashed = this.enemies.some((enemy) => {
+      return this.player.crashWith(enemy);
+    });
+    if (crashed) {
+      this.stop();
+      this.fillStyle = "red";
+      this.ctx.font = "72px Arial";
+      this.ctx.fillText("Game Over", 0, this.height / 2);
+    }
+
+  }
+
   //    clearCanvas() {
   //         ctx.clearRect(0, 0, 600, 600); // 700 and 450 are canvas width and height
   //       }
@@ -66,15 +79,6 @@ class Game {
   
   } */
 
-  checkGameOver() {
-    const crashed = this.enemies.some((enemy) => {
-      return this.player.crashWith(enemy);
-    });
-    if (crashed) {
-      this.stop();
-      this.fillStyle = "red";
-      this.ctx.font = "72px Arial";
-      this.ctx.fillText("Game Over", 0, this.height / 2);
-    }
-  }
 }
+
+
