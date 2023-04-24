@@ -12,13 +12,6 @@ class Component {
   }
   draw() {
     this.ctx.drawImage(this.img, this.x, this.y, 50, 50);
-
-    // const enemyImg = new Image();
-    // img.addEventListener("load", () => {
-    //   this.img = img;
-    // });
-    // img.src = "./images/snake.png";
-    // this.ctx.drawImage(img, 50, 50, 50, 50);
   }
   newPos() {
     this.x += this.speedX;

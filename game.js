@@ -14,6 +14,7 @@ class Game {
     //this.player = new Component(0, 200, 75, 75, this.ctx);
     this.controls = new Controls(this.player);
     this.intervalId = setInterval(this.update, 10);
+    this.controls.keyboardEvents();
   }
   update = () => {
     this.frames++;
@@ -40,19 +41,18 @@ class Game {
       this.ctx.font = "72px Arial";
       this.ctx.fillText("Game Over", 0, this.height / 2);
     }
-
   }
+}
+//    clearCanvas() {
+//         ctx.clearRect(0, 0, 600, 600); // 700 and 450 are canvas width and height
+//       }
 
-  //    clearCanvas() {
-  //         ctx.clearRect(0, 0, 600, 600); // 700 and 450 are canvas width and height
-  //       }
+//    drawCanvas(x, y, w, h, color) {
+//         ctx.fillStyle = color;
+//         ctx.fillRect(x, y, w, h);
+//       }
 
-  //    drawCanvas(x, y, w, h, color) {
-  //         ctx.fillStyle = color;
-  //         ctx.fillRect(x, y, w, h);
-  //       }
-
-  /* updateEnemies() {
+/* updateEnemies() {
       for (let i = 0; i < this.enemies.length; i++) {
           this.enemies[i].x -= 1; //enemy goes more to the right
           this.enemies[i].draw(); //continues to draw enemy
@@ -78,7 +78,3 @@ class Game {
       }
   
   } */
-
-}
-
-
