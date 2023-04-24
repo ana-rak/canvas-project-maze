@@ -1,18 +1,19 @@
 class Component {
-  constructor(x, y, w, h, ctx) {
+  constructor(x, y, w, h, ctx, src) {
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
     this.img = new Image();
-    this.img.src = "./daco.png";
+    this.img.src = src;
     this.ctx = ctx;
     this.speedX = 0;
     this.speedY = 0;
   }
   draw() {
-    this.ctx.drawImage(this.img, this.x, this.y, 50, 50);
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   }
+
   newPos() {
     this.x += this.speedX;
     this.y += this.speedY;
@@ -31,12 +32,12 @@ class Component {
     return this.x + this.w;
   }
 
-  crashWith(enemy) {
+  crashWith(item) {
     return (
-      this.bottom() > enemy.top() &&
-      this.top() < enemy.bottom() &&
-      this.right() > enemy.left() &&
-      this.left() < enemy.right()
+      this.bottom() > item.top() &&
+      this.top() < item.bottom() &&
+      this.right() > item.left() &&
+      this.left() < item.right()
     );
   }
 }
