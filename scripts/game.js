@@ -10,24 +10,39 @@ class Game {
     this.enemies = [];
     this.gold = [];
     this.score = 0;
+    this.hitSound = 0;
+    this.backgroundMusic = new Audio("./sound/Indiana_Jones.mp3");
+    this.backgroundMusic.loop = false;
   }
 
   start() {
     this.controls = new Controls(this.player);
     this.intervalId = setInterval(this.update, 10);
     this.controls.keyboardEvents();
+    this.backgroundMusic.play();
+  }
+  drawScore() {
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText(`Score: ${score}`, 8, 20);
   }
   update = () => {
     this.frames++;
+    this.sound = 0;
     this.clear();
     this.player.newPos();
     this.player.draw();
     this.updateEnemies();
     this.updateGold();
+    this.ctx.font = "20px arial";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText(`Score: ${this.score}`, 10, 590);
     this.checkGameOver();
+    this.hitSound.play();
   };
   stop() {
     clearInterval(this.intervalId);
+    this.backgroundMusic.pause();
+    this.backgroundMusic.currentTime = 0;
   }
   clear() {
     this.ctx.clearRect(0, 0, this.width, this.height);
@@ -39,14 +54,24 @@ class Game {
     });
     if (crashed) {
       this.stop();
-      this.fillStyle = "red";
+      this.ctx.fillStyle = "red";
       this.ctx.font = "72px Arial";
-      this.ctx.fillText("Game Over", 0, this.height / 2);
+      this.ctx.fillText("Game Over", 30, 60);
+      setTimeout(() => {
+        hitSound.play();
+      }, 500);
+      this.backgroundMusic.stop();
     }
     this.gold.map((gold, i) => {
-      if(this.player.crashWith(gold)) {
-        this.score ++;
+      if (this.player.crashWith(gold)) {
+        this.score += 10;
         this.gold.splice(i, 1);
+      }
+      if (this.score === 100) {
+        this.stop();
+        this.ctx.fillStyle = "gold";
+        this.ctx.font = "72px Arial";
+        this.ctx.fillText("You won!", 30, 60);
       }
     });
   }
@@ -79,7 +104,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./snake.png"
+          "./images/snake5.png"
         )
       );
 
@@ -91,7 +116,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./snake.png"
+          "./images/snake5.png"
         )
       );
     }
@@ -105,8 +130,8 @@ class Game {
 
     if (this.frames % 200 === 0) {
       let x = 200;
-      let minHeight = 20; 
-      let maxHeight = 400; 
+      let minHeight = 20;
+      let maxHeight = 400;
 
       let height = Math.floor(
         Math.random() * (maxHeight - minHeight + 1) + minHeight
@@ -124,7 +149,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./gold.png"
+          "./images/gold.png"
         )
       );
     }

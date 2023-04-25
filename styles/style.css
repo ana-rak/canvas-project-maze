@@ -1,0 +1,47 @@
+html {
+  /* background-color: rgb(89, 158, 100); */
+  background-image: url(../images/game-wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+canvas {
+  background-color: #f9f4c3;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 30%;
+  right: 0;
+  margin: auto;
+}
+
+#start {
+  position: relative; 
+  top: -45px;
+  left: 200px;
+  width: 100px;
+  height: 40px;
+  background-color: #f9f4c3;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+  position: relative; 
+  top: 200px;
+  left: 170px;
+  width: 100px;
+  height: 40px;
+  color: white;
+}
+
+ul {
+  color: white;
+  position: relative;
+  top: 180px;
+  left: 145px;
+  width: 250px;
+  height: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+

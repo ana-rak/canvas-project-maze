@@ -9,15 +9,17 @@ class Controls {
         case "ArrowUp":
           this.player.speedY -= 1;
           break;
+
         case "ArrowDown":
           this.player.speedY += 1;
           break;
+
         case "ArrowLeft":
           this.player.speedX -= 1;
           break;
+
         case "ArrowRight":
           this.player.speedX += 1;
-          console.log("here");
           break;
       }
     });
