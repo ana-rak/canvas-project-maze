@@ -10,6 +10,7 @@ class Component {
     this.speedX = 0;
     this.speedY = 0;
   }
+
   draw() {
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   }
