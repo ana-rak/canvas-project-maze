@@ -10,7 +10,8 @@ class Game {
     this.enemies = [];
     this.gold = [];
     this.score = 0;
-    this.hitSound = 0;
+    this.winSound = new Audio("./sound/winSound.mp3");
+    this.winSound.loop = false;
     this.backgroundMusic = new Audio("./sound/Indiana_Jones.mp3");
     this.backgroundMusic.loop = false;
   }
@@ -37,8 +38,8 @@ class Game {
     this.ctx.fillStyle = "black";
     this.ctx.fillText(`Score: ${this.score}`, 10, 590);
     this.checkGameOver();
-    this.hitSound.play();
   };
+
   stop() {
     clearInterval(this.intervalId);
     this.backgroundMusic.pause();
@@ -54,24 +55,45 @@ class Game {
     });
     if (crashed) {
       this.stop();
-      this.ctx.fillStyle = "red";
-      this.ctx.font = "72px Arial";
-      this.ctx.fillText("Game Over", 30, 60);
+      this.ctx.roundRect(70, 150, 500, 200, 10);
+
+      this.ctx.fillStyle = "rgb(168, 50, 50)";
+      this.ctx.fill();
+      this.ctx.fillStyle = "black";
+      this.ctx.font = "80px Verdana";
+      this.ctx.fillText("Game Over", 90, 230);
+
+      this.ctx.fillStyle = "white";
+      this.ctx.font = "40px Verdana";
+      this.ctx.fillText(`Your Score: ${this.score}`, 180, 320);
+
       setTimeout(() => {
         hitSound.play();
       }, 500);
-      this.backgroundMusic.stop();
+      //this.backgroundMusic.stop();
     }
+
     this.gold.map((gold, i) => {
       if (this.player.crashWith(gold)) {
         this.score += 10;
         this.gold.splice(i, 1);
       }
       if (this.score === 100) {
-        this.stop();
+        this.ctx.roundRect(70, 150, 500, 200, 10);
+        this.ctx.fillStyle = "rgb(87, 55, 9)";
+        this.ctx.fill();
         this.ctx.fillStyle = "gold";
-        this.ctx.font = "72px Arial";
-        this.ctx.fillText("You won!", 30, 60);
+        this.ctx.font = "80px Verdana";
+        this.ctx.fillText("You won!", 140, 230);
+
+        this.ctx.fillStyle = "white";
+        this.ctx.font = "40px Verdana";
+        this.ctx.fillText(`Your Score: ${this.score}`, 180, 320);
+        this.stop();
+        setTimeout(() => {
+          this.winSound.play();
+        }, 100);
+        this.backgroundMusic.stop();
       }
     });
   }

@@ -14,6 +14,8 @@ const player = new Component(0, 200, 75, 75, ctx, "./images/daco.png");
 //Create hit sound
 const hitSound = document.getElementById("hitSound");
 
+//Create the win sound
+const winSound = document.getElementById("winSound");
 
 //Start Button on Click
 startButton.onclick = function () {
