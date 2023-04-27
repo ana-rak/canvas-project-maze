@@ -10,9 +10,9 @@ class Game {
     this.enemies = [];
     this.gold = [];
     this.score = 0;
-    this.winSound = new Audio("docs/assets/sound/winSound.mp3");
+    this.winSound = new Audio("docs/assets/sound/winsound.mp3");
     this.winSound.loop = false;
-    this.backgroundMusic = new Audio("docs/assets/sound/Indiana_Jones.mp3");
+    this.backgroundMusic = new Audio("docs/assets/sound/indianajones.mp3");
     this.backgroundMusic.loop = false;
   }
 
