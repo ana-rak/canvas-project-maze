@@ -10,7 +10,7 @@ class Game {
     this.enemies = [];
     this.gold = [];
     this.score = 0;
-    this.winSound = new Audio("docs/assets/sound/winsound.mp3");
+    this.winSound = new Audio("docs/assets/sound/winsoundsfx.mp3");
     this.winSound.loop = false;
     this.backgroundMusic = new Audio("docs/assets/sound/indianajones.mp3");
     this.backgroundMusic.loop = false;
