@@ -1,11 +1,11 @@
 html {
-  background-image: url(../images/game-wallpaper.jpg);
+  background-image: url(../assets/images/game-wallpaper.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 canvas {
-  background-image: url(../images/desert.png);
+  background-image: url(../assets/images/desert.png);
   position: absolute;
   top: 50px;
   bottom: 0;

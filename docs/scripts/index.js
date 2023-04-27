@@ -9,7 +9,14 @@ const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("start");
 
 //Create the Player
-const player = new Component(0, 200, 75, 75, ctx, "./images/daco.png");
+const player = new Component(
+  0,
+  200,
+  75,
+  75,
+  ctx,
+  "/docs/assets/images/daco.png"
+);
 
 //Create hit sound
 const hitSound = document.getElementById("hitSound");
@@ -23,5 +30,4 @@ startButton.onclick = function () {
   const game = new Game(ctx, canvas.width, canvas.height, player);
   /* backgroundMusic.play(); */
   game.start();
-
 };

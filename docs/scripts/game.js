@@ -10,9 +10,9 @@ class Game {
     this.enemies = [];
     this.gold = [];
     this.score = 0;
-    this.winSound = new Audio("./sound/winSound.mp3");
+    this.winSound = new Audio("docs/assets/sound/winSound.mp3");
     this.winSound.loop = false;
-    this.backgroundMusic = new Audio("./sound/Indiana_Jones.mp3");
+    this.backgroundMusic = new Audio("docs/assets/sound/Indiana_Jones.mp3");
     this.backgroundMusic.loop = false;
   }
 
@@ -126,7 +126,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./images/snake5.png"
+          "docs/assets/images/snake5.png"
         )
       );
 
@@ -138,7 +138,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./images/snake5.png"
+          "docs/assets/images/snake5.png"
         )
       );
     }
@@ -171,7 +171,7 @@ class Game {
           75,
           75,
           this.ctx,
-          "./images/gold.png"
+          "docs/assets/images/gold.png"
         )
       );
     }
