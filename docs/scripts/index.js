@@ -15,7 +15,7 @@ const player = new Component(
   75,
   75,
   ctx,
-  "/docs/assets/images/daco.png"
+  "docs/assets/images/daco.png"
 );
 
 //Create hit sound
